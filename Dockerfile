@@ -1,4 +1,6 @@
-FROM sequenceiq/pam:ubuntu-14.04
+FROM phusion/baseimage:latest
+#FROM sequenceiq/pam:ubuntu-14.04
+
 MAINTAINER Gabriel Figueiredo <gabriel.figueiredo@imperial.ac.uk>
 
 ENV DEBIAN_FRONTEND noninteractive

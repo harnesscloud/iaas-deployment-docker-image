@@ -1,4 +1,4 @@
-FROM harnesscloud/iaas-deployment-docker-image-base:latest
+FROM harnesscloud/iaas-deployment-base:latest
 
 MAINTAINER Gabriel Figueiredo <gabriel.figueiredo@imperial.ac.uk>
 

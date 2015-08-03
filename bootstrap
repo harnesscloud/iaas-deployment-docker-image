@@ -5,7 +5,7 @@
 supervisorctl restart crs
 sleep 1
 supervisorctl restart irm-nova
-supervisorctl restart irm-shepard
+#supervisorctl restart irm-shepard
 
 exit 0
 

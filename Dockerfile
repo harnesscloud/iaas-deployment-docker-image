@@ -4,25 +4,21 @@ MAINTAINER Gabriel Figueiredo <gabriel.figueiredo@imperial.ac.uk>
 
 WORKDIR /harness
 
+RUN apt-get update && apt-get install -y python-nova python-neutron
+
 RUN git clone https://github.com/harnesscloud/crs.git
 RUN git clone https://github.com/harnesscloud/harness-resource-manager.git
 RUN git clone https://github.com/harnesscloud/irm-nova.git
-RUN git clone https://github.com/harnesscloud/irm-shepard.git
+RUN git clone https://github.com/harnesscloud/irm-neutron.git
+RUN git clone https://github.com/harnesscloud/irm-net.git
 
 COPY cfg/* cfg/
 COPY supervisord.conf ./
 COPY start_harness_iaas ./
 COPY bootstrap ./
 
-RUN pip install flask-classy
+RUN pip install flask-classy 
 
-RUN rm -f /harness/irm-nova/compute_list && \
-    ln -sf /etc/harness-iaas/compute_list /harness/irm-nova/compute_list 
-RUN rm -f /harness/crs/crs.constraints && \
-    ln -sf /etc/harness-iaas/crs.constraints /harness/crs/crs.constraints
-
-VOLUME /etc/harness-iaas
-
-EXPOSE 8888 56789
+EXPOSE 56789 8889 7779 9999
 
 CMD ./start_harness_iaas

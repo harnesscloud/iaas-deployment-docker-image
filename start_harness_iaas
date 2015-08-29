@@ -4,13 +4,6 @@ CONFIG_VARIABLES="main_TENANT_NAME
                   main_USERNAME
                   main_PASSWORD
                   main_NOVA_ENDPOINT
-                  main_IRM_INTERFACE
-                  main_IRM_ADDRESS
-                  main_IRM_PORT
-                  CRS_ACTIVE
-                  CRS_CRS_URL
-                  CRS_IMAGE_NAME
-                  CRS_DEFAULT_IMAGE
                   network_NET_ID
                   network_IP_TYPE
                   network_UUID
@@ -18,13 +11,15 @@ CONFIG_VARIABLES="main_TENANT_NAME
                   overcommit_MEM_RATIO
                   overcommit_DISK_RATIO"
 
-# configuring irm-nova
+# configuring irm-nova and irm-neutron
 for varname in ${CONFIG_VARIABLES}; do
     value=$(eval "echo \${$varname}")
     if [ -n "$value" ]; then
         read section key <<< "${varname/_/ }"
         sed -i -e"/^\[${section}\]/,/^\[.*\]/{/^${key}:.*/d}" -e"/^\[${section}\]/a${key}: ${value}" /harness/cfg/irm-nova.cfg
+        sed -i -e"/^\[${section}\]/,/^\[.*\]/{/^${key}:.*/d}" -e"/^\[${section}\]/a${key}: ${value}" /harness/cfg/irm-neutron.cfg
     fi
 done
+
 
 supervisord -n -c supervisord.conf 

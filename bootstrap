@@ -1,11 +1,9 @@
 #!/bin/bash
 supervisorctl restart crs
 sleep 0.5
-supervisorctl restart irm-net
-sleep 0.5
-supervisorctl restart hresmon
 supervisorctl restart irm-nova
-supervisorctl restart irm-neutron
+supervisorctl restart irm-shepard
+
 
 exit 0
 

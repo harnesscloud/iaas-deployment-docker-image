@@ -2,8 +2,8 @@
 supervisorctl restart crs
 sleep 0.5
 supervisorctl restart irm-nova
+supervisorctl restart hresmon
 supervisorctl restart irm-shepard
-
 
 exit 0
 

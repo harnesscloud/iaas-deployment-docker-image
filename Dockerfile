@@ -8,7 +8,7 @@ RUN git clone https://github.com/harnesscloud/crs.git
 RUN git clone https://github.com/harnesscloud/harness-resource-manager.git
 RUN git clone https://github.com/harnesscloud/irm-nova.git
 RUN git clone https://github.com/harnesscloud/irm-neutron.git
-RUN git clone https://github.com/harnesscloud/irm-net.git
+RUN git clone https://github.com/harnesscloud/irm-net.git --branch tcrules
 
 COPY cfg/* cfg/
 COPY supervisord.conf ./

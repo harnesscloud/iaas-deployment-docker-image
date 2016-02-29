@@ -16,8 +16,9 @@ for varname in ${CONFIG_VARIABLES}; do
     value=$(eval "echo \${$varname}")
     if [ -n "$value" ]; then
         read section key <<< "${varname/_/ }"
-        sed -i -e"/^\[${section}\]/,/^\[.*\]/{/^${key}:.*/d}" -e"/^\[${section}\]/a${key}: ${value}" /harness/cfg/irm-nova.cfg
-        sed -i -e"/^\[${section}\]/,/^\[.*\]/{/^${key}:.*/d}" -e"/^\[${section}\]/a${key}: ${value}" /harness/cfg/irm-neutron.cfg
+        for cfg_file in /harness/cfg/*.cfg; do
+		sed -i -e"/^\[${section}\]/,/^\[.*\]/{/^${key}:.*/d}" -e"/^\[${section}\]/a${key}: ${value}" ${cfg_file}
+        done
     fi
 done
 

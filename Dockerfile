@@ -17,6 +17,8 @@ ADD harness_insecure-id_rsa /root/.ssh/id_rsa
 RUN chmod 0600 /root/.ssh/id_rsa
 ADD harness_insecure-id_rsa.pub /root/.ssh/authorized_keys
 RUN chmod 0644 /root/.ssh/authorized_keys
+ADD ssh_config /root/.ssh/config
+RUN chmod 644 /root/.ssh/config
 
 COPY cfg/* cfg/
 COPY supervisord.conf ./

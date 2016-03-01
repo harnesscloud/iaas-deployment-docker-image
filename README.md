@@ -3,6 +3,8 @@
 This folder contains the dockerfiles for creating the image for
 the harness-iaas-services container.
 
+**Note:** the image should be re-built every time irm-net (or any other irm) is modified.
+
 ## Traffic Control rules branch
 
 ### Modifications

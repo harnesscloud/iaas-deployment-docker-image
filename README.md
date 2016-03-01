@@ -1,5 +1,8 @@
 [![DOI](https://zenodo.org/badge/7696/harnesscloud/iaas-deployment-docker-image.svg)](https://zenodo.org/badge/latestdoi/7696/harnesscloud/iaas-deployment-docker-image)
 
+This folder contains the dockerfiles for creating the image for
+the harness-iaas-services container.
+
 ## Traffic Control rules branch
 
 ### Modifications

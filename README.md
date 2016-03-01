@@ -20,5 +20,5 @@ The ``harness-iaas-services`` image should be built under the following name:
 
 Once the image has been build, push it to docker hub:
 
-	docker image
+	docker login -e <username@example.org> -u <hub.docker username>
 	docker push harnesscloud/iaas-deployment-docker-image-tcrules
